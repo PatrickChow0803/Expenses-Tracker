@@ -20,14 +20,15 @@ class TransactionList extends StatelessWidget {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.purple, width: 2.0),
+                  border: Border.all(
+                      color: Theme.of(context).primaryColor, width: 2.0),
                 ),
                 padding: EdgeInsets.all(10),
                 child: Text(
                   // toStringAsFixed determines the number of decimal points
                   '\$${Provider.of<TransactionData>(context).userTransactions[index].amount.toStringAsFixed(2)}',
                   style: TextStyle(
-                    color: Colors.purple,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),

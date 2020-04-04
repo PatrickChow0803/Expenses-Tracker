@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   final amountController = TextEditingController();
 
   void startAddNewTransaction(BuildContext context) {
+    // showModalBottomSheet is the bottom sheet widget that displays when a user clicks on add.
     // Builder is the widget that you want to be made.
     showModalBottomSheet(
       context: context,
@@ -113,7 +114,10 @@ class NewTransaction extends StatelessWidget {
                           double.parse(amountController.text));
 
                   // Gets rid of the keyboard when pressing the button
-                  FocusScope.of(context).unfocus();
+                  // Not needed anymore because it's now in a modal.
+//                  FocusScope.of(context).unfocus();
+
+                  Navigator.of(context).pop();
                 },
               ),
             )

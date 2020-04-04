@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       // Create is the data that I want to share
       create: (BuildContext context) => TransactionData(),
       child: MaterialApp(
+        theme: ThemeData(
+            primarySwatch: Colors.purple, accentColor: Colors.yellowAccent),
         home: HomeScreen(),
       ),
     );

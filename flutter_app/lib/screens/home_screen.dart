@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      trans.amount.toString(),
+                      '\$${trans.amount}',
                       style: TextStyle(
                         color: Colors.purple,
                         fontWeight: FontWeight.bold,
@@ -58,9 +58,19 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(trans.title),
-                      Text(trans.date.toString()),
+                      Text(
+                        trans.title,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Text(
+                        trans.date.toString(),
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   )
                 ],

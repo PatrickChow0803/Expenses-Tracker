@@ -63,6 +63,9 @@ class HomeScreen extends StatelessWidget {
                           Provider.of<TransactionData>(context, listen: false)
                               .addTransaction(titleController.text,
                                   double.parse(amountController.text));
+
+                          // Gets rid of the keyboard when pressing the button
+                          FocusScope.of(context).unfocus();
                         },
                       ),
                     )

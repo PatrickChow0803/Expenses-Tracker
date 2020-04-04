@@ -7,58 +7,61 @@ import 'package:provider/provider.dart';
 class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Need a container here in order for the ScrollView to work properly. The height field tells ScrollView how much screen it should take.
     return Container(
       height: 340.0,
-      child: SingleChildScrollView(
-        child: Column(
-          // **** Use map method to convert a list of objects into a list of widgets
-          // trans is the iterable of the transaction list.
-          // return Card is the widget that I want to have for each object.
-          children: Provider.of<TransactionData>(context)
-              .userTransactions
-              .map((trans) {
-            return Card(
-                child: Row(
-              children: <Widget>[
-                Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.purple, width: 2.0),
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Text(
-                    '\$${trans.amount}',
-                    style: TextStyle(
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+      child: ListView.builder(
+        itemCount:
+            Provider.of<TransactionData>(context).userTransactions.length,
+        // Working with itemBuilder, for the return, you want to return the widget that you want to make equal to the amount of times of itemCount.
+        itemBuilder: (context, index) {
+          return Card(
+              child: Row(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.purple, width: 2.0),
+                ),
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  '\$${Provider.of<TransactionData>(context).userTransactions[index].amount}',
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      trans.title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    Provider.of<TransactionData>(context)
+                        .userTransactions[index]
+                        .title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
                     ),
-                    Text(
-                      // Formats the date into a more readable String
+                  ),
+                  Text(
+                    // Formats the date into a more readable String
 //                        DateFormat().format(trans.date),
-                      DateFormat.yMMMd().format(trans.date),
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                )
-              ],
-            ));
-          }).toList(),
-        ),
+                    DateFormat.yMMMd().format(
+                        Provider.of<TransactionData>(context)
+                            .userTransactions[index]
+                            .date),
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              )
+            ],
+          ));
+        },
+
+        // **** Use map method to convert a list of objects into a list of widgets
+        // trans is the iterable of the transaction list.
+        // return Card is the widget that I want to have for each object.
       ),
     );
   }

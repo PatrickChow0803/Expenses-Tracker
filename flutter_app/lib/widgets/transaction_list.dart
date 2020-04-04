@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/transaction.dart';
+import 'package:flutter_app/models/transaction_data.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class TransactionList extends StatefulWidget {
   @override
@@ -8,28 +10,14 @@ class TransactionList extends StatefulWidget {
 }
 
 class _TransactionListState extends State<TransactionList> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
       // **** Use map method to convert a list of objects into a list of widgets
       // trans is the iterable of the transaction list.
       // return Card is the widget that I want to have for each object.
-      children: _userTransactions.map((trans) {
+      children:
+          Provider.of<TransactionData>(context).userTransactions.map((trans) {
         return Card(
             child: Row(
           children: <Widget>[

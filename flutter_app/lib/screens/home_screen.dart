@@ -41,8 +41,16 @@ class HomeScreen extends StatelessWidget {
               return Card(
                   child: Row(
                 children: <Widget>[
-                  Text(
-                    trans.amount.toString(),
+                  Container(
+                    margin:
+                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 2.0),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      trans.amount.toString(),
+                    ),
                   ),
                   Column(
                     children: <Widget>[

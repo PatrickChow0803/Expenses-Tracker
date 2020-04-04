@@ -45,11 +45,16 @@ class HomeScreen extends StatelessWidget {
                     margin:
                         EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2.0),
+                      border: Border.all(color: Colors.purple, width: 2.0),
                     ),
                     padding: EdgeInsets.all(10),
                     child: Text(
                       trans.amount.toString(),
+                      style: TextStyle(
+                        color: Colors.purple,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                   Column(

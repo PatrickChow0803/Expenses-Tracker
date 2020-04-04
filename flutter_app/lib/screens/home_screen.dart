@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/models/transaction.dart';
 import 'package:flutter_app/models/transaction_data.dart';
+import 'package:flutter_app/widgets/chart.dart';
 import 'package:flutter_app/widgets/transaction_list.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -48,12 +49,9 @@ class HomeScreen extends StatelessWidget {
 //          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              color: Colors.blueAccent,
-              child: Text('Chart Placeholder'),
-            ),
+          Chart(
+            recentTransaction:
+                Provider.of<TransactionData>(context).recentTransactions,
           ),
           TransactionList(),
         ],

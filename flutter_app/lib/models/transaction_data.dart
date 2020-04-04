@@ -22,6 +22,13 @@ class TransactionData extends ChangeNotifier {
     return UnmodifiableListView(_userTransactions);
   }
 
+  // Get a list of transactions that occurred within a 7 day period
+  List<Transaction> get recentTransactions {
+    return _userTransactions.where((trans) {
+      return trans.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
+    }).toList();
+  }
+
   void addTransaction(String title, double amount) {
     final transaction = Transaction(
       id: _userTransactions.length.toString(),

@@ -32,9 +32,15 @@ class HomeScreen extends StatelessWidget {
                 child: Text('Chart Placeholder'),
               ),
             ),
-            Card(
-              child: Text('List of Trans'),
-            )
+            Column(
+                // **** Use map method to convert a list of objects into a list of widgets
+                // trans is the iterable of the transaction list.
+                // return Card is the widget that I want to have for each object.
+                children: transactions.map((trans) {
+              return Card(
+                child: Text(trans.title),
+              );
+            }).toList())
           ],
         ));
   }

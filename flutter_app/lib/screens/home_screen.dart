@@ -3,6 +3,13 @@ import 'package:flutter_app/models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class HomeScreen extends StatelessWidget {
+//  String titleInput;
+//  String amountInput;
+
+  // This is another way of storing input by use of controllers.
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   final List<Transaction> transactions = [
     Transaction(
       id: 't1',
@@ -43,16 +50,25 @@ class HomeScreen extends StatelessWidget {
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleController,
+//                      onChanged: (value) {
+//                        titleInput = value;
+//                      },
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
+//                      onChanged: (value) => amountInput = value,
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 16.0),
                       child: FlatButton(
                         child: Text('Add Transaction'),
                         textColor: Colors.purple,
-                        onPressed: () {},
+                        onPressed: () {
+                          print(
+                              '${titleController.text} --- ${amountController.text}');
+                        },
                       ),
                     )
                   ],

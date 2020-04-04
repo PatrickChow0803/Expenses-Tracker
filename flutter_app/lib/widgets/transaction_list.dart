@@ -24,7 +24,8 @@ class TransactionList extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  '\$${Provider.of<TransactionData>(context).userTransactions[index].amount}',
+                  // toStringAsFixed determines the number of decimal points
+                  '\$${Provider.of<TransactionData>(context).userTransactions[index].amount.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.purple,
                     fontWeight: FontWeight.bold,

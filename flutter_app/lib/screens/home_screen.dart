@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/models/transaction.dart';
 import 'package:flutter_app/models/transaction_data.dart';
 import 'package:flutter_app/widgets/transaction_list.dart';
@@ -49,6 +50,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
+                      keyboardType: TextInputType.number,
                       controller: amountController,
 //                      onChanged: (value) => amountInput = value,
                     ),

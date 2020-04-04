@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/transaction.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Transaction> transactions = [
@@ -68,7 +69,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        trans.date.toString(),
+                        // Formats the date into a more readable String
+//                        DateFormat().format(trans.date),
+                        DateFormat.yMMMd().format(trans.date),
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],

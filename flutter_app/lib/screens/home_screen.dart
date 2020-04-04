@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           title: Text('Flutter App'),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -38,8 +39,19 @@ class HomeScreen extends StatelessWidget {
                 // return Card is the widget that I want to have for each object.
                 children: transactions.map((trans) {
               return Card(
-                child: Text(trans.title),
-              );
+                  child: Row(
+                children: <Widget>[
+                  Text(
+                    trans.amount.toString(),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(trans.title),
+                      Text(trans.date.toString()),
+                    ],
+                  )
+                ],
+              ));
             }).toList())
           ],
         ));

@@ -25,13 +25,38 @@ class HomeScreen extends StatelessWidget {
           title: Text('Flutter App'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
               width: double.infinity,
               child: Card(
                 color: Colors.blueAccent,
                 child: Text('Chart Placeholder'),
+              ),
+            ),
+            Card(
+              child: Container(
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 16.0),
+                      child: FlatButton(
+                        child: Text('Add Transaction'),
+                        textColor: Colors.purple,
+                        onPressed: () {},
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Column(

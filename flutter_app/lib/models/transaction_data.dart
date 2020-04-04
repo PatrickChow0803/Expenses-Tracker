@@ -39,4 +39,9 @@ class TransactionData extends ChangeNotifier {
     _userTransactions.add(transaction);
     notifyListeners();
   }
+
+  void deleteTransaction(Transaction selectedTransaction) {
+    _userTransactions.remove(selectedTransaction);
+    notifyListeners();
+  }
 }

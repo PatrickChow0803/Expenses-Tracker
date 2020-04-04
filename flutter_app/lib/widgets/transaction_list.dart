@@ -75,6 +75,22 @@ class TransactionList extends StatelessWidget {
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      width: 150.0,
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.restore_from_trash,
+                        color: Colors.red,
+                      ),
+                      onPressed: () {
+                        Provider.of<TransactionData>(context, listen: false)
+                            .deleteTransaction(Provider.of<TransactionData>(
+                                    context,
+                                    listen: false)
+                                .userTransactions[index]);
+                      },
                     )
                   ],
                 ));
